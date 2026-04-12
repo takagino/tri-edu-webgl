@@ -3,7 +3,6 @@ import * as THREE from 'three';
 
 // 1. シーンの作成
 const scene = new THREE.Scene();
-scene.background = new THREE.Color('#336699');
 
 // 2. カメラの作成
 const camera = new THREE.PerspectiveCamera(
@@ -21,7 +20,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
 // 4. ジオメトリ（形状）の作成： 幅1, 高さ1, 奥行き1の立方体
-const geometry = new THREE.CapsuleGeometry(1, 1, 4, 8, 1);
+const geometry = new THREE.BoxGeometry(1, 1, 1);
 
 // 5. マテリアル（質感）の作成： 光がなくても立体感がわかるノーマルマテリアル
 const material = new THREE.MeshNormalMaterial();
