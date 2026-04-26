@@ -1,0 +1,10 @@
+/* 余白を無くし、スクロールバーを出さない設定 */
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+/* キャンバスの下にできる謎の隙間を消す設定 */
+canvas {
+  display: block;
+}
