@@ -44,7 +44,27 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 const gltfLoader = new GLTFLoader();
 const gltf = await gltfLoader.loadAsync('./fugu.glb');
-const fugu = gltf.scene;
+const originalFugu = gltf.scene;
+const fugus = [];
+
+for (let i = 0; i < 100; i++) {
+  const fugu = originalFugu.clone();
+
+  fugu.position.set(
+    (Math.random() - 0.5) * 20,
+    (Math.random() - 0.5) * 20,
+    (Math.random() - 0.5) * 20,
+  );
+
+  fugu.rotation.x = Math.random() * Math.PI * 2;
+  fugu.rotation.y = Math.random() * Math.PI * 2;
+
+  const s = Math.random() * 0.4 + 0.1;
+  fugu.scale.set(s, s, s);
+
+  fugus.push(fugu);
+  scene.add(fugu);
+}
 
 const fontLoader = new FontLoader();
 const font = await fontLoader.loadAsync('./helvetiker_regular.typeface.json');
@@ -97,26 +117,6 @@ const updateClock = () => {
   textGeometry.center();
   textGroup.add(textMesh);
 };
-
-const fugus = [];
-
-for (let i = 0; i < 100; i++) {
-  const fuguClone = fugu.clone();
-
-  fuguClone.position.set(
-    (Math.random() - 0.5) * 20,
-    (Math.random() - 0.5) * 20,
-    (Math.random() - 0.5) * 20,
-  );
-
-  fuguClone.rotation.y = Math.random() * Math.PI * 2;
-
-  const s = Math.random() * 0.5 + 0.1;
-  fuguClone.scale.set(s, s, s);
-
-  fugus.push(fuguClone);
-  scene.add(fuguClone);
-}
 
 const update = () => {
   window.requestAnimationFrame(update);
