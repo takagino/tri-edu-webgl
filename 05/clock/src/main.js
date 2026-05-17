@@ -67,7 +67,7 @@ for (let i = 0; i < 100; i++) {
 }
 
 const fontLoader = new FontLoader();
-const font = await fontLoader.loadAsync('./helvetiker_regular.typeface.json');
+const font = await fontLoader.loadAsync('./Changa_One_Regular.json');
 
 const clockGroup = new THREE.Group();
 scene.add(clockGroup);
